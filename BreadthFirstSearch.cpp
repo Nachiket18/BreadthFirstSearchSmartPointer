@@ -102,7 +102,7 @@ int main() {
   tree.insert(12);
   tree.insert(5);
   tree.insert(10);
-  tree.print();
+  //tree.print();
   tree.BreadFirstSearch();
   return 0;
 }
