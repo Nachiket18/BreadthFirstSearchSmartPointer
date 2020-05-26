@@ -44,15 +44,15 @@ template < class T >
       /*.The loop to find out the exact node where to insert the newly arrived node. Feature of binary search tree, where the left side node has lesser value than root while right side node has higher*/
       while (temp != nullptr) {
         prev = temp;
-        if (temp - > value < value) {
-          temp = temp - > right.get();
+        if (temp -> value < value) {
+          temp = temp -> right.get();
         } else
-          temp = temp - > left.get();
+          temp = temp -> left.get();
       }
-      if (prev - > value < value)
-        prev - > right = std::move(node);
+      if (prev -> value < value)
+        prev -> right = std::move(node);
       else
-        prev - > left = std::move(node);
+        prev -> left = std::move(node);
     }
   }
 
@@ -67,9 +67,9 @@ template < class T >
     if (node == nullptr)
       return;
 
-    print(node - > left);
-    std::cout << node - > value << std::endl;
-    print(node - > right);
+    print(node -> left);
+    std::cout << node -> value << std::endl;
+    print(node -> right);
 
   }
 template < class T >
@@ -84,13 +84,13 @@ template < class T >
     q.push( & node);
     while (q.empty() == false) {
       auto p = q.front();
-      cout << " " << ( * p) - > value;
+      cout << " " << ( * p) -> value;
       q.pop();
-      if (( * p) - > left != nullptr) {
-        q.push( & ( * p) - > left);
+      if (( * p) -> left != nullptr) {
+        q.push( & ( * p) -> left);
       }
-      if (( * p) - > right != nullptr) {
-        q.push( & ( * p) - > right);
+      if (( * p) -> right != nullptr) {
+        q.push( & ( * p) -> right);
       }
     }
 
@@ -99,9 +99,12 @@ template < class T >
 
 int main() {
   TreeNode < int > tree;
-  tree.insert(12);
   tree.insert(5);
+  tree.insert(2);
   tree.insert(10);
+  tree.insert(12);
+  tree.insert(18);
+  tree.insert(8);
   //tree.print();
   tree.BreadFirstSearch();
   return 0;
